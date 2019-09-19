@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// For Calender
+import DatePicker from "react-datepicker";
+ 
+import "react-datepicker/dist/react-datepicker.css";
+
 class App extends Component {
-  state = {users: []}
+  state = {users: [],
+           startDate: new Date()
+           };
+  
+   handleChange = date => {
+    this.setState({
+      startDate: date
+    });
+  };
 
   componentDidMount() {
     fetch('/users')
@@ -17,6 +30,12 @@ class App extends Component {
         {this.state.users.map(user =>
           <div key={user.id}>{user.username}</div>
         )}
+
+      <DatePicker
+        selected={this.state.startDate}
+        onChange={this.handleChange}
+        
+      />
       </div>
     );
   }
