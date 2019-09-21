@@ -19,6 +19,23 @@ class App extends Component {
     });
   };
 
+  sendData = date => {
+
+    fetch('http://localhost:3000/reserve', {
+      method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          // sending the current date selected
+          dateToSend: date
+          
+        })
+  })
+  console.log(this.state.startDate)
+}
+
   componentDidMount() {
     fetch('/users')
       .then(res => res.json())
@@ -37,6 +54,7 @@ class App extends Component {
       <DatePicker
         selected={this.state.startDate}
         onChange={this.handleChange}
+        onSelect={this.sendData}
         
       />
       </div>
