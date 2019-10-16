@@ -31,6 +31,7 @@ class App extends Component {
           // sending the current date selected
           dateToSend: date
           
+          
         })
   })
   console.log(this.state.startDate)
