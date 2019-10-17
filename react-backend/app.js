@@ -10,7 +10,7 @@ var reserveRouter = require('./routes/reserve');
 
 var app = express();
 //port
-const port = 80;
+const port = 5000;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -51,6 +51,6 @@ if(process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(process.env.PORT || port, () => console.log(`Example app listening on port ${port}!`))
 
 module.exports = app;
