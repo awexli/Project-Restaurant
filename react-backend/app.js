@@ -10,7 +10,7 @@ var reserveRouter = require('./routes/reserve');
 
 var app = express();
 //port
-const port = 3001;
+const port = 5000;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,6 +41,15 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// Used to deploy react app
+app.use(express.static(path.join(__dirname, 'build')));
+
+if(process.env.NODE_ENV === 'production') {
+  app.get('/*', function (req, res) {
+   	res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+}
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
