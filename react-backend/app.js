@@ -10,7 +10,7 @@ var reserveRouter = require('./routes/reserve');
 
 var app = express();
 //port
-const port = 5000;
+const port = 80;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
