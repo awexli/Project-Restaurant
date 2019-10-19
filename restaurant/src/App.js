@@ -21,7 +21,7 @@ class App extends Component {
 
   sendData = date => {
 
-    fetch('http://localhost:3000/reserve', {
+    fetch('/reserve', {
       method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -34,7 +34,7 @@ class App extends Component {
           
         })
   })
-  console.log(this.state.startDate)
+  console.log(date)
 }
 
   componentDidMount() {
