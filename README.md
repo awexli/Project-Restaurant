@@ -12,4 +12,4 @@ A website for a family restaurant
 1. "npm run build" from restaurant folder.
 2. Cut build folder that will appear in restaurant folder.
 3. Paste into server folder.
-4. "npm start" to run the app.
+4. "npm start" in server folder to run the app.
