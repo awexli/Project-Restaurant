@@ -3,8 +3,39 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar.js';
 
+// For Calender
+import DatePicker from "react-datepicker";
+ 
+import "react-datepicker/dist/react-datepicker.css";
+
 class App extends Component {
-  state = {users: []}
+  state = {users: [],
+           startDate: new Date()
+           };
+  
+   handleChange = date => {
+    this.setState({
+      startDate: date
+    });
+  };
+
+  sendData = date => {
+
+    fetch('/reserve', {
+      method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          // sending the current date selected
+          dateToSend: date
+          
+          
+        })
+  })
+  console.log(date)
+}
 
   componentDidMount() {
     fetch('/users')
@@ -20,6 +51,13 @@ class App extends Component {
         {this.state.users.map(user =>
           <div key={user.id}>{user.username}</div>
         )}
+
+      <DatePicker
+        selected={this.state.startDate}
+        onChange={this.handleChange}
+        onSelect={this.sendData}
+        
+      />
       </div>
     );
   }
