@@ -4,8 +4,9 @@ A website for a family restaurant
 - npm start --prefix C:\Users\Alex\Desktop\Project-Restaurant\restaurant
 
 ## Steps to run development server and app
-1. "npm run start" from restaurant folder.
-2. "node server.js" from server folder.
+1. "node server.js" from server folder; server must start for app to connect to backend.
+2. "npm run start" from restaurant folder.
+
 
 ## For production build
 1. "npm run build" from restaurant folder.
