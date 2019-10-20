@@ -9,6 +9,6 @@ A website for a family restaurant
 
 ## For production build
 1. "npm run build" from restaurant folder.
-2. Cut and paste build folder that will appear in restaurant folder.
+2. Cut build folder that will appear in restaurant folder.
 3. Paste into server folder.
 4. "npm start" to run the app.
